@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ComposeExtensions"
 include(":app")
- 
+include(":extensionslibrary")
