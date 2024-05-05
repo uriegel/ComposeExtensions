@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("maven-publish")
 }
 
 android {
@@ -40,3 +41,18 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+publishing {
+    publications {
+        afterEvaluate {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.uriegel"
+                artifactId = "ComposeExtensions"
+                version = "1.1.0"
+            }
+        }
+    }
+}
+
